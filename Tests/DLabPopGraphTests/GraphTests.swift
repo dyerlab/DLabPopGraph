@@ -12,7 +12,6 @@ import DLabPopGraph
 struct GraphTests {
 
     @Test func graphConstruction() async throws {
-        
         let G = Graph()
         
         #expect(G.cardinality == 0, "Failed cardinality" )
@@ -20,7 +19,6 @@ struct GraphTests {
         
         G.addNode(name: "Bob", size: 12.2, color: .red)
         #expect(G.cardinality == 1, "Failed cardinality, G=1" )
-        
     }
 
 }
