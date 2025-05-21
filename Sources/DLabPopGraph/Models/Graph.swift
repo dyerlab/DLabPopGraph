@@ -28,8 +28,12 @@ public class Graph: Identifiable, Hashable  {
         return lhs.id == rhs.id
     }
     
-    public func nodeNamed(_ name: String ) -> Node? {
+    public func node(name: String ) -> Node? {
         return nodes.first(where: { $0.name == name } ) ?? nil
+    }
+    
+    public func node(id: UUID ) -> Node? {
+        return nodes.first( where: { $0.id == id } ) ?? nil
     }
         
     public func addNode(name: String, size: Double, color: Color ) {
@@ -42,8 +46,8 @@ public class Graph: Identifiable, Hashable  {
     
     
     public func addEdge( from: String, to: String, weight: Double, symmetric: Bool ) {
-        if let node1 = self.nodeNamed(from),
-           let node2 = self.nodeNamed(to) {
+        if let node1 = self.node(name: from),
+           let node2 = self.node(name: to) {
             self.addEdge(from: node1, to: node2, weight: weight, symmetric: symmetric)
         }
     }
@@ -72,9 +76,9 @@ public class Graph: Identifiable, Hashable  {
     /// Convience function to pass node names instead of node objects.
     /// - Returns: Path for the shortest path or nil i fno path exists
     public func shortestPath( from: String, to: String) -> Path? {
-        if let start = self.nodeNamed(from),
-           let end = self.nodeNamed(to) {
-            return self.shortestPath(from: start, to: end)
+        if let node1 = self.node(name: from),
+           let node2 = self.node(name: to) {
+            return self.shortestPath(from: node1, to: node2)
         } else {
             return nil
         }
