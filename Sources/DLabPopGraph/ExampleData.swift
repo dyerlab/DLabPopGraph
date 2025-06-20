@@ -12,6 +12,22 @@ import CoreLocation
 
 public extension Graph {
     
+    static var smallGraph: Graph {
+        let g = Graph()
+        
+        g.addNode(name: "A", size: 1.0, color: .red )
+        g.addNode(name: "B", size: 1.0, color: .green )
+        g.addNode(name: "C", size: 1.5, color: .blue )
+        g.addNode(name: "D", size: 2.0, color: .orange )
+        
+        g.addEdge(from: "A", to: "B", weight: 1.0, symmetric: true )
+        g.addEdge(from: "B", to: "C", weight: 2.0, symmetric: true )
+        g.addEdge(from: "C", to: "A", weight: 3.0, symmetric: true )
+        g.addEdge(from: "C", to: "D", weight: 4.0, symmetric: false )
+        
+        return g
+    }
+    
     static var lophoGraph: Graph {
         let g = Graph()
         
@@ -36,7 +52,6 @@ public extension Graph {
         g.addNode( name: "SI", size: 11.84485, color: Color.blue, coordinate: CLLocationCoordinate2D( latitude: 29.75,longitude: -112.5) )
         g.addNode( name: "SN", size: 8.64935, color: Color.blue, coordinate: CLLocationCoordinate2D( latitude: 28.82,longitude: -111.8) )
         g.addNode( name: "TS", size: 14.85345, color: Color.orange, coordinate: CLLocationCoordinate2D( latitude: 28.41,longitude: -111.37) )
-        
         
         g.addEdge( from: "BaC", to: "LaV", weight: 9.052676, symmetric: true )
         g.addEdge( from: "BaC", to: "Lig", weight: 9.716150, symmetric: true )

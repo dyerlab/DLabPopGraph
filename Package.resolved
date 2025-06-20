@@ -1,0 +1,15 @@
+{
+  "originHash" : "ccbfb2e573a6b92451e36f790e8c6fe6e9eac9f0f137eb1c2513a823ce9da4fd",
+  "pins" : [
+    {
+      "identity" : "dlabmatrix",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dyerlab/DLabMatrix",
+      "state" : {
+        "revision" : "f108d4f4dce8472113bfd0bb80afb506bcb3998c",
+        "version" : "1.0.5"
+      }
+    }
+  ],
+  "version" : 3
+}

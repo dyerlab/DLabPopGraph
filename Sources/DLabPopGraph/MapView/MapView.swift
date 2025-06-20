@@ -50,12 +50,21 @@ public struct MapView: View {
         }
         .mapStyle( MapStyle.hybrid )
         .mapControls {
-            MapZoomStepper()
             MapScaleView()
             MapCompass()
             MapPitchToggle()
+            
+            #if os(macOS)
+            MapZoomStepper()
             MapPitchSlider()
+            #endif 
         }
+        .inspector(isPresented: $isPresentingInspector ) {
+            if let index = graph.nodes.firstIndex(where: { $0.id == selectedNodeID }) {
+                NodeInspectorForm(node: $graph.nodes[index])
+            }
+        }
+        
         
     }
 }
